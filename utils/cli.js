@@ -32,9 +32,10 @@ const flags = {
 };
 
 const commands = {
-	help: { desc: `Print help info` },
-	login: { desc: `Login to is-a.dev` },
+	create: { desc: `Create a subdomain` },
 	check: { desc: `Check if a subdomain is available` },
+	login: { desc: `Login to is-a.dev` },
+	help: { desc: `Print help info` },
 	logout: { desc: `Logout of is-a.dev` }
 };
 

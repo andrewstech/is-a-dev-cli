@@ -7,9 +7,7 @@ function logout() {
     return;
   }
   account.delete('username');
-  account.delete('accesstoken');
-  account.delete('refreshtoken');
-  account.delete('idtoken');
+  account.delete('token');
   console.log('You have been logged out.');
 }
 

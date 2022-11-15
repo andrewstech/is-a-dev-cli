@@ -20,15 +20,16 @@ async function check(domain) {
         //if it doesn't, ask for a domain
         const response = await prompts(wquestions);
         //check if the domain is available
-        fetch(`https://api.github.com/repos/is-a-dev/register/contents/domains/${response.domain}.json`, {
+        var validSubdomain = response.subdomain.replace(/\.is-a\.dev$/, '');
+        fetch(`https://api.github.com/repos/is-a-dev/register/contents/domains/${validSubdomain}.json`, {
             method: 'GET',
             headers: {
                 'User-Agent': 'mtgsquad'
             }
         }).then(async(res) => {
             if(res.status && res.status == 404) {
-                console.log(`The subdomain: ${response.domain}.is-a.dev is available!`);
-            } else console.log(`The subdomain: ${response.domain}.is-a.dev is unavailable.`)
+                console.log(`The subdomain: ${validSubdomain}.is-a.dev is available!`);
+            } else console.log(`The subdomain: ${validSubdomain}.is-a.dev is unavailable.`)
         })
     }
 }
