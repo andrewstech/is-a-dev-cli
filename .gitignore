@@ -68,5 +68,8 @@ assets/bower_components/*
 library/vendors/composer
 assets/img/.DS_Store
 
+# project specific files #
+account.json
+
 # VSCode related files #
 # .vscode

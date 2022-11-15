@@ -12,6 +12,7 @@ const cli = require('./utils/cli');
 const log = require('./utils/log');
 const login = require('./functions/login');
 const check = require('./functions/check');
+const logout = require('./functions/logout');
 
 
 const input = cli.input;
@@ -23,6 +24,7 @@ const { clear, debug } = flags;
 	input.includes(`help`) && cli.showHelp(0);
 	input.includes(`login`) && login();
 	input.includes(`check`) && check(flags.check);
+	input.includes(`logout`) && logout();
 
 	debug && log(flags);
 })();
