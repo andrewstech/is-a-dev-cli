@@ -34,7 +34,9 @@ async function create() {
     console.log("To log in, run `is-a-dev login`");
     return;
   }
+
   console.log("You are logged in as " + account.get("username"));
+
   const response = await prompts(questions);
   const octokit = new Octokit({ auth: account.get("token") });
 
@@ -110,6 +112,7 @@ async function create() {
         });
     } else throw new Error("That subdomain is unavalible!");
   });
+
   var res = await octokit.request("POST /repos/{owner}/{repo}/pulls", {
     owner: "is-a-dev",
     repo: "register",
