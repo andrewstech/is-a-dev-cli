@@ -14,6 +14,6 @@ module.exports = ({ clear = true }) => {
     bgColor: "#36BB09",
     color: "#000000",
     bold: true,
-    clear,
+    clear
   });
 };
