@@ -2,7 +2,7 @@ const questions = [
   {
     type: "text",
     name: "subdomain",
-    message: "What subdomain would you like?",
+    message: "What subdomain would you like?"
   },
   {
     type: "select",
@@ -12,14 +12,14 @@ const questions = [
       { value: "A" },
       { value: "CNAME" },
       { value: "MX" },
-      { value: "TXT" },
-    ],
+      { value: "TXT" }
+    ]
   },
   {
     type: "text",
     name: "Content",
-    message: "What is the content of the record?",
-  },
+    message: "What is the content of the record?"
+  }
 ];
 
 module.exports = questions;
