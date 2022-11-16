@@ -34,7 +34,7 @@ async function login() {
 
       console.log("Open %s", verification.verification_uri);
       console.log("Enter code: %s", verification.user_code);
-    },
+    }
   });
 
   const tokenAuthentication = await auth({ type: "oauth" });
