@@ -11,8 +11,8 @@ async function check(domain) {
       {
         method: "GET",
         headers: {
-          "User-Agent": "mtgsquad",
-        },
+          "User-Agent": "mtgsquad"
+        }
       }
     ).then(async (res) => {
       if (res.status && res.status == 404) {
@@ -24,13 +24,14 @@ async function check(domain) {
     const response = await prompts(wquestions);
     // Check if the domain is available
     var validSubdomain = response.subdomain.replace(/\.is-a\.dev$/, "");
+
     fetch(
       `https://api.github.com/repos/is-a-dev/register/contents/domains/${validSubdomain}.json`,
       {
         method: "GET",
         headers: {
-          "User-Agent": "mtgsquad",
-        },
+          "User-Agent": "mtgsquad"
+        }
       }
     ).then(async (res) => {
       if (res.status && res.status == 404) {
