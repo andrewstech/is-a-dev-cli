@@ -2,6 +2,7 @@
 
 <h1 align="center">is-a-dev CLI</h1>
 <p align="center">A new way to generate your free subdomains from your teminal.</p>
+<p align="center">You find the registration repository <a href="https://github.com/is-a-dev/register">here</a>.</p>
 
 ## Installation
 Install the CI with npm.
