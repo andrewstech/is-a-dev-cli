@@ -13,7 +13,7 @@ function isValidURL(string) {
 
 function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
-  };
+};
 
 function ValidateIPaddress(ipaddress) {  
     if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ipaddress)) {  
@@ -46,13 +46,13 @@ async function create() {
   var LowcaseContent = content.toLowerCase();
   if(type === "CNAME") {
     if (isValidURL(LowcaseContent) === false) {;
-        console.log('The content you entered is not a valid URL.');
+        console.log('The record value you entered is not a valid URL.');
         return;
     }
     }
     if(type === "A") {
         if (ValidateIPaddress(LowcaseContent) === false) {
-            console.log('The content you entered is not a valid IP address.');
+            console.log('The record value you entered is not a valid IP address.');
             return;
         }
     }
@@ -92,11 +92,11 @@ async function create() {
                     content: contentEncoded
                 }
                 ).catch((error) => {
-                    throw new Error("Something went badly wrong!");
+                    throw new Error("Something went wrong!");
                     return;
                 }
                 );
-            } else throw new Error("The subdomain is unavalible !");
+            } else throw new Error("That subdomain is unavalible!");
         })
         var res = await octokit.request('POST /repos/{owner}/{repo}/pulls', {
             owner: 'is-a-dev',
@@ -105,10 +105,10 @@ async function create() {
             body: 'Added ' + validSubdomain + 'via the CLI',
             head: username + ':main',
             base: 'main'
-          })
-            console.log('Your record has been created. Please wait for it to be approved.');
-            console.log('You can check the status of your record here: ' + res.data.html_url);
-            console.log(' Thaks for using is-a-dev CLI!');
+        })
+            console.log('Your pull request has been generated. Please wait for it to be approved.');
+            console.log('You can check the status of your PR here: ' + res.data.html_url);
+            console.log('Thank you for using is-a-dev');
 
 }
 
