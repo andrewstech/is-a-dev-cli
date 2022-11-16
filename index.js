@@ -1,10 +1,3 @@
-/**
- * is-a-dev
- * Create free subdomains
- *
- * @author andrewstech <httpz>
- */
-
 const init = require("./utils/init");
 const cli = require("./utils/cli");
 const log = require("./utils/log");
