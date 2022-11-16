@@ -36,41 +36,43 @@ async function create() {
   }
   console.log("You are logged in as " + account.get("username"));
   const response = await prompts(questions);
-  const octokit = new Octokit({
-    auth: account.get("token"),
-  });
+  const octokit = new Octokit({ auth: account.get("token") });
+
   var type = response.type;
+
   await octokit.request("POST /repos/{owner}/{repo}/forks", {
     owner: "is-a-dev",
-    repo: "register",
+    repo: "register"
   });
+
   var content = response.Content;
   var username = account.get("username");
   var email = account.get("email");
   var validSubdomain = response.subdomain.replace(/\.is-a\.dev$/, "");
   var lowcaseDomain = validSubdomain.toLowerCase();
   var LowcaseContent = content.toLowerCase();
+
   if (type === "CNAME") {
     if (isValidURL(LowcaseContent) === false) {
       console.log("The record value you entered is not a valid URL.");
       return;
     }
   }
+
   if (type === "A") {
     if (ValidateIPaddress(LowcaseContent) === false) {
       console.log("The record value you entered is not a valid IP address.");
       return;
     }
   }
+
   if (type === "A" || type === "MX") {
-    LowcaseContent = JSON.stringify(
-      LowcaseContent.split(",").map((s) => s.trim())
-    );
+    LowcaseContent = JSON.stringify(LowcaseContent.split(",").map((s) => s.trim()));
   } else {
     LowcaseContent = `"${LowcaseContent.trim()}"`;
   }
 
-  var fullContent = ` 
+  var fullContent = `
     {
       "owner": {
         "username": "${username}",
@@ -80,7 +82,8 @@ async function create() {
         "${type}": ${LowcaseContent}
       }
     }
-    `;
+  `;
+
   var contentEncoded = Base64.encode(fullContent);
 
   fetch(
@@ -88,8 +91,8 @@ async function create() {
     {
       method: "GET",
       headers: {
-        "User-Agent": "mtgsquad",
-      },
+        "User-Agent": "mtgsquad"
+      }
     }
   ).then(async (res) => {
     if (res.status && res.status == 404) {
@@ -99,7 +102,7 @@ async function create() {
           repo: "register",
           path: "domains/" + validSubdomain + ".json",
           message: "Added " + validSubdomain,
-          content: contentEncoded,
+          content: contentEncoded
         })
         .catch((error) => {
           throw new Error("An error occurred");
@@ -113,11 +116,10 @@ async function create() {
     title: "Added " + validSubdomain,
     body: "Added " + validSubdomain + "via the CLI",
     head: username + ":main",
-    base: "main",
+    base: "main"
   });
-  console.log(
-    "Your pull request has been generated. Please wait for it to be approved."
-  );
+
+  console.log("Your pull request has been generated. Please wait for it to be approved.");
   console.log("You can check the status of your PR here: " + res.data.html_url);
   console.log("Thank you for using is-a-dev");
 }
