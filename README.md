@@ -1,42 +1,32 @@
-
 ![Logo](https://raw.githubusercontent.com/is-a-dev/register/main/media/banner.png)
 
-
-# IS A DEV CLI
-
-A new way to generate your free subdomains without messing around with json files.
-
-
+# is-a-dev CLI
+A new way to generate your free subdomains from your teminal.
 
 ## Authors
-
 - [@andrewstech](https://www.github.com/andrewstech)
 
-
 ## Installation
-
-Install the CI with npm
-
-```bash
-  npm install @is-a-dev/cli -g
-```
-
-Run the CI 
+Install the CI with npm.
 
 ```bash
-  is-a-dev
+npm install @is-a-dev/cli -g
 ```
 
-For commands type
+Run the CI
+
 ```bash
-  is-a-dev help
+is-a-dev
 ```
-## Support
 
-For support, join our [Discord Server](https://discord.gg/PZCGHz4RhQ).
+To see all available commands, run:
 
+```bash
+is-a-dev help
+```
 
-## License
+### Support
+For support, please join our [Discord Server](https://discord.gg/PZCGHz4RhQ).
 
+### License
 [MIT](https://choosealicense.com/licenses/mit/)
-
