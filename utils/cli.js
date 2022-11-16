@@ -6,29 +6,29 @@ const flags = {
     type: `boolean`,
     default: true,
     alias: `c`,
-    desc: `Clear the console`,
+    desc: `Clear the console`
   },
   noClear: {
     type: `boolean`,
     default: true,
-    desc: `Don't clear the console`,
+    desc: `Don't clear the console`
   },
   debug: {
     type: `boolean`,
     default: false,
     alias: `d`,
-    desc: `Print debug info`,
+    desc: `Print debug info`
   },
   version: {
     type: `boolean`,
     alias: `v`,
-    desc: `Print CLI version`,
+    desc: `Print CLI version`
   },
   check: {
     type: `string`,
     alias: `c`,
-    desc: `Check if a subdomain is available`,
-  },
+    desc: `Check if a subdomain is available`
+  }
 };
 
 const commands = {
@@ -36,20 +36,20 @@ const commands = {
   check: { desc: `Check if a subdomain is available` },
   login: { desc: `Login to is-a.dev` },
   help: { desc: `Print help info` },
-  logout: { desc: `Logout of is-a.dev` },
+  logout: { desc: `Logout of is-a.dev` }
 };
 
 const helpText = meowHelp({
   name: `is-a-dev`,
   flags,
-  commands,
+  commands
 });
 
 const options = {
   inferType: true,
   description: false,
   hardRejection: false,
-  flags,
+  flags
 };
 
 module.exports = meow(helpText, options);
