@@ -4,7 +4,7 @@ module.exports = (info) => {
   alert({
     type: `warning`,
     name: `DEBUG LOG`,
-    msg: ``,
+    msg: ``
   });
 
   console.log(info);
