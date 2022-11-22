@@ -98,10 +98,11 @@ async function create() {
                 );
             } else throw new Error("The subdomain is unavalible !");
         })
+        await delay(1000);
         var res = await octokit.request('POST /repos/{owner}/{repo}/pulls', {
             owner: 'is-a-dev',
             repo: 'register',
-            title: 'Added ' + validSubdomain,
+            title: 'Added ' + validSubdomain + 'Via is-a-dev-cli',
             body: 'Added ' + validSubdomain + 'via the CLI',
             head: username + ':main',
             base: 'main'

@@ -14,6 +14,7 @@ const login = require('./functions/login');
 const check = require('./functions/check');
 const logout = require('./functions/logout');
 const create = require('./functions/create');
+const debuger = require('./functions/debug');
 
 
 const input = cli.input;
@@ -27,6 +28,7 @@ const { clear, debug } = flags;
 	input.includes(`check`) && check(flags.check);
 	input.includes(`logout`) && logout();
 	input.includes(`create`) && create();
+	input.includes(`debuger`) && debuger();
 
 	debug && log(flags);
 })();

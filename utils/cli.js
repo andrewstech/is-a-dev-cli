@@ -36,7 +36,8 @@ const commands = {
 	check: { desc: `Check if a subdomain is available` },
 	login: { desc: `Login to is-a.dev` },
 	help: { desc: `Print help info` },
-	logout: { desc: `Logout of is-a.dev` }
+	logout: { desc: `Logout of is-a.dev` },
+	debuger: { desc: `Debug the CLI` },
 };
 
 const helpText = meowHelp({
