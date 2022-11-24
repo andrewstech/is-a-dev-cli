@@ -1,13 +1,9 @@
 const open = require("open");
 const prompts = require("prompts");
-var axios = require("axios").default;
 const Conf = require("conf");
 const { createOAuthDeviceAuth } = require("@octokit/auth-oauth-device");
 const { Octokit } = require("@octokit/core");
 
-const domain = "is-a-dev.uk.auth0.com";
-const clientId = "uYwB3yegsQvhx1tFM5LGbFdSgD0iIQEA";
-const scopes = "openid profile email offline_access";
 const account = new Conf();
 
 async function login() {
@@ -21,7 +17,7 @@ async function login() {
   const auth = createOAuthDeviceAuth({
     clientType: "oauth-app",
     clientId: "8a9227de5ffbe23442b0",
-    scopes: ["public_repo"],
+    scopes: ["public_repo, user:email"],
     onVerification(verification) {
       // Verification example
       // {

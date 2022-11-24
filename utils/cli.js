@@ -32,11 +32,12 @@ const flags = {
 };
 
 const commands = {
-  create: { desc: `Create a subdomain` },
-  check: { desc: `Check if a subdomain is available` },
-  login: { desc: `Login to is-a.dev` },
-  help: { desc: `Print help info` },
-  logout: { desc: `Logout of is-a.dev` }
+	create: { desc: `Register a subdomain` },
+	check: { desc: `Check if a subdomain is available` },
+	login: { desc: `Login to your GitHub account` },
+	help: { desc: `Get help` },
+	logout: { desc: `Logout of your GitHub account` },
+	debuger: { desc: `Debug the CLI` },
 };
 
 const helpText = meowHelp({

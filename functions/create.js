@@ -106,25 +106,21 @@ async function create() {
           message: "Added " + validSubdomain,
           content: contentEncoded
         })
-        .catch((error) => {
-          throw new Error("An error occurred");
-          return;
-        });
-    } else throw new Error("That subdomain is unavalible!");
-  });
 
-  var res = await octokit.request("POST /repos/{owner}/{repo}/pulls", {
-    owner: "is-a-dev",
-    repo: "register",
-    title: "Added " + validSubdomain,
-    body: "Added " + validSubdomain + "via the CLI",
-    head: username + ":main",
-    base: "main"
-  });
+        await delay(1000);
 
-  console.log("Your pull request has been generated. Please wait for it to be approved.");
-  console.log("You can check the status of your PR here: " + res.data.html_url);
-  console.log("Thank you for using is-a-dev");
+        var res = await octokit.request('POST /repos/{owner}/{repo}/pulls', {
+            owner: "is-a-dev",
+            repo: "register",
+            title: "Register (via CLI): " + validSubdomain,
+            body: "Added " + validSubdomain + " via the CLI",
+            head: username + ":main",
+            base: "main"
+        })
+
+        console.log("Your pull request has been created. Please wait for it to be merged.");
+        console.log("You can check the status of your PR here: " + res.data.html_url);
+        console.log("Thanks for using is-a.dev!");
 }
 
 module.exports = create;
