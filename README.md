@@ -1,4 +1,6 @@
-![Logo](https://raw.githubusercontent.com/is-a-dev/register/main/media/banner.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/is-a-dev/register/main/media/banner.png" height="196">
+</p>
 
 <h1 align="center">is-a-dev CLI</h1>
 <p align="center">A new way to generate your free subdomains from your terminal.</p>
