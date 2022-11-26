@@ -1,7 +1,7 @@
 ![Logo](https://raw.githubusercontent.com/is-a-dev/register/main/media/banner.png)
 
 <h1 align="center">is-a-dev CLI</h1>
-<p align="center">A new way to generate your free subdomains from your teminal.</p>
+<p align="center">A new way to generate your free subdomains from your terminal.</p>
 <p align="center">You find the registration repository <a href="https://github.com/is-a-dev/register">here</a>.</p>
 
 ## Installation
@@ -33,4 +33,4 @@ For support, please join our [Discord Server](https://discord.gg/PZCGHz4RhQ).
 </a>
 
 ### License
-[MIT](https://choosealicense.com/licenses/mit/)
+This project is under the [MIT License](https://choosealicense.com/licenses/mit/).
