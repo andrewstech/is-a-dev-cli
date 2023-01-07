@@ -3,6 +3,7 @@ const account = new Conf();
 const prompts = require('prompts');
 const fetch = require("node-fetch");
 const questions = require('./createquestions');
+const logger = require('./utils/log');
 const { Octokit } = require("@octokit/core");
 const { Base64 } = require("js-base64");
 
@@ -24,11 +25,11 @@ function ValidateIPaddress(ipaddress) {
 
 async function create() {
   if (!account.has('username')) {
-    console.log('You are not logged in.');
-    console.log('To log in, run `is-a-dev login`');
+    logger.negative('You are not logged in.');
+    logger.neutral('To log in, run `is-a-dev login`');
     return;
   }
-  console.log('You are logged in as ' + account.get('username'));
+  logger.neutral('You are logged in as ' + account.get('username'));
   const response = await prompts(questions);
   const octokit = new Octokit({
     auth: account.get('token')
@@ -46,13 +47,13 @@ async function create() {
   var LowcaseContent = content.toLowerCase();
   if(type === "CNAME") {
     if (isValidURL(LowcaseContent) === false) {;
-        console.log('The content you entered is not a valid URL.');
+        logger.negative('The content you entered is not a valid URL.');
         return;
     }
     }
     if(type === "A") {
         if (ValidateIPaddress(LowcaseContent) === false) {
-            console.log('The content you entered is not a valid IP address.');
+            logger.negative('The content you entered is not a valid IP address.');
             return;
         }
     }
@@ -102,14 +103,15 @@ async function create() {
         var res = await octokit.request('POST /repos/{owner}/{repo}/pulls', {
             owner: 'is-a-dev',
             repo: 'register',
-            title: 'Added ' + validSubdomain + 'Via is-a-dev-cli',
-            body: 'Added ' + validSubdomain + 'via the CLI',
+            title: 'Added ' + validSubdomain + ' via is-a-dev-cli',
+            body: 'Added ' + validSubdomain + ' via the CLI',
             head: username + ':main',
             base: 'main'
           })
-            console.log('Your record has been created. Please wait for it to be approved.');
-            console.log('You can check the status of your record here: ' + res.data.html_url);
-            console.log(' Thaks for using is-a-dev CLI!');
+
+            logger.success('Your record has been created. Please wait for it to be approved.');
+            logger.neutral('You can check the status of your record here: ' + res.data.html_url);
+            logger.success(' Thaks for using is-a-dev CLI!');
 
 }
 

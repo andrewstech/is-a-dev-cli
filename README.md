@@ -15,13 +15,13 @@ A new way to generate your free subdomains without messing around with json file
 
 ## Installation
 
-Install the CI with npm
+Install the CLI with npm
 
 ```bash
   npm install @is-a-dev/cli -g
 ```
 
-Run the CI 
+Run the CLI 
 
 ```bash
   is-a-dev
