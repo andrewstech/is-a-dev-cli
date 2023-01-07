@@ -1,6 +1,8 @@
 const prompts = require('prompts');
 const fetch = require("node-fetch");
 const wquestions = require('./what-domain');
+const logger = require('./utils/log');
+
 async function check(domain) {
     //check if var has a value
     if (domain) {
@@ -13,8 +15,8 @@ async function check(domain) {
             }
         }).then(async(res) => {
             if(res.status && res.status == 404) {
-                console.log(`The subdomain: ${domain}.is-a.dev is available!`);
-            } else console.log(`The subdomain: ${domain}.is-a.dev is unavailable.`)
+                logger.success(`The subdomain: ${domain}.is-a.dev is available!`);
+            } else logger.negative(`The subdomain: ${domain}.is-a.dev is unavailable.`)
         })
     } else {
         //if it doesn't, ask for a domain
@@ -28,8 +30,8 @@ async function check(domain) {
             }
         }).then(async(res) => {
             if(res.status && res.status == 404) {
-                console.log(`The subdomain: ${validSubdomain}.is-a.dev is available!`);
-            } else console.log(`The subdomain: ${validSubdomain}.is-a.dev is unavailable.`)
+                logger.success(`The subdomain: ${validSubdomain}.is-a.dev is available!`);
+            } else logger.negative(`The subdomain: ${validSubdomain}.is-a.dev is unavailable.`)
         })
     }
 }
