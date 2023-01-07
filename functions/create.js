@@ -3,7 +3,7 @@ const account = new Conf();
 const prompts = require('prompts');
 const fetch = require("node-fetch");
 const questions = require('./createquestions');
-const logger = require('./utils/log');
+const logger = require('../utils/log');
 const { Octokit } = require("@octokit/core");
 const { Base64 } = require("js-base64");
 
@@ -109,9 +109,9 @@ async function create() {
             base: 'main'
           })
 
-            logger.success('Your record has been created. Please wait for it to be approved.');
+            logger.positive('Your record has been created. Please wait for it to be approved.');
             logger.neutral('You can check the status of your record here: ' + res.data.html_url);
-            logger.success(' Thaks for using is-a-dev CLI!');
+            logger.positive(' Thaks for using is-a-dev CLI!');
 
 }
 
