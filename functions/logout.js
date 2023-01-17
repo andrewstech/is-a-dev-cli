@@ -6,6 +6,8 @@ function logout() {
     console.log('You are not logged in.');
     return;
   }
+  
+  account.delete('email');
   account.delete('username');
   account.delete('token');
   console.log('You have been logged out.');
