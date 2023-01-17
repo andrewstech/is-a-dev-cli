@@ -43,9 +43,11 @@ async function login() {
   const octokit = new Octokit({
     auth: tokenAuthentication.token
   })
-  const res = await octokit.request('GET /user/emails', {});
-  account.set('username', res.data.login);
-  account.set('email', res.data.email);
+  const res1 = await octokit.request('GET /user', {});
+  account.set('username', res1.data.login);
+
+  const res2 = await octokit.request('GET /user/emails', {});
+  account.set('email', res2.data[0].email);
   console.log('You are now logged in as ' + account.get('username'));
 
 }
