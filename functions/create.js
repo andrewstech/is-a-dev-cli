@@ -97,7 +97,7 @@ async function create() {
                     return;
                 }
                 );
-            } else throw new Error("The subdomain is unavalible !");
+            } else throw new Error("The subdomain is unavailable!");
         })
         await delay(1000);
         var res = await octokit.request('POST /repos/{owner}/{repo}/pulls', {
@@ -111,7 +111,7 @@ async function create() {
 
             logger.positive('Your record has been created. Please wait for it to be approved.');
             logger.neutral('You can check the status of your record here: ' + res.data.html_url);
-            logger.positive(' Thaks for using is-a-dev CLI!');
+            logger.positive('Thanks for using is-a-dev CLI!');
 
 }
 
