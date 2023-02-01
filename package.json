@@ -6,7 +6,7 @@
   "bin": {
     "is-a-dev": "index.js"
   },
-  "author": "andrewstech <hello@andrewstech.me> (https://andrewstech.em)",
+  "author": "andrewstech <hello@andrewstech.me> (https://andrewstech.me)",
   "repository": "https://github.com/andrewstech/is-a-dev-cli",
   "keywords": [
     "is-a-dev",
