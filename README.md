@@ -1,3 +1,7 @@
+# Deprecated
+The code in this repository is the old code for the old versions of the is-a.dev CLI, please see [wdhdev/is-a-dev-cli](https://github.com/wdhdev/is-a-dev-cli) for the rewritten version of the CLI.
+
+---
 
 ![Logo](https://raw.githubusercontent.com/is-a-dev/register/main/media/banner.png)
 
